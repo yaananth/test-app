@@ -105,7 +105,7 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           yarn install
-      - name: Run RSpec
+      - name: Prepare database
         env:
           RAILS_ENV: test
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testapp_test
@@ -113,4 +113,9 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:schema:load
           bundle exec rake db:test:prepare
+      - name: Run RSpec
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testapp_test
+        run: |
           bundle exec rspec

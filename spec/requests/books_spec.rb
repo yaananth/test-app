@@ -16,12 +16,16 @@ RSpec.describe "/books", type: :request do
   # Book. As you add validations to Book, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:book)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:book).except(:name)
   }
+
+  before(:each) do
+    sleep 2
+  end
 
   describe "GET /index" do
     it "renders a successful response" do

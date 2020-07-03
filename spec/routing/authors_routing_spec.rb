@@ -2,6 +2,10 @@ require "rails_helper"
 
 RSpec.describe AuthorsController, type: :routing do
   describe "routing" do
+    before(:each) do
+      sleep 2
+    end
+
     it "routes to #index" do
       expect(get: "/authors").to route_to("authors#index")
     end

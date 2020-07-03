@@ -80,24 +80,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      redis:
-        image: redis:latest
-        ports: ['6379:6379']
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-      influx:
-        image: influxdb:1.8
-        ports: ['8086:8086']
-        env:
-          INFLUXDB_DB: doorflow_test
-        options: >-
-          --health-cmd "curl --fail http://localhost:8086/ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -126,13 +108,7 @@ jobs:
       - name: Run RSpec
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/doorflow_test
-          INFLUXDB_DATABASE: doorflow_test
-          INFLUXDB_USERNAME: doorflow
-          INFLUXDB_PASSWORD: doorflow
-          INFLUXDB_HOST: localhost
-          INFLUXDB_PORT: 8086
-          REDIS_URL: redis://localhost
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testapp_test
         run: |
           bundle exec rake db:create
           bundle exec rake db:schema:load

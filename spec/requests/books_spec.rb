@@ -20,11 +20,11 @@ RSpec.describe '/books', type: :request do
   end
 
   let(:invalid_attributes) do
-    attributes_for(:book).except(:name)
+    { name: "" }
   end
 
   before(:each) do
-    sleep 2
+    sleep 0.5
   end
 
   describe 'GET /index' do

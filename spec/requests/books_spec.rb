@@ -20,7 +20,7 @@ RSpec.describe '/books', type: :request do
   end
 
   let(:invalid_attributes) do
-    { name: "" }
+    { name: '' }
   end
 
   before(:each) do

@@ -21,6 +21,12 @@ $stdout.sync = true
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+ # Enable stdout logger
+ config.logger = Logger.new(STDOUT)
+
+ # Set log level
+ config.log_level = :INFO
+  
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

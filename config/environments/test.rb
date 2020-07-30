@@ -14,7 +14,7 @@ Rails.application.configure do
   # preloads Rails for running tests, you may have to set it to true.
   config.eager_load = false
   
-  # Enable stdout logger
+  # Enable stdout logger..
   config.logger = Logger.new(STDOUT)
 
   # Set log level

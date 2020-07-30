@@ -3,7 +3,7 @@ require 'simplecov'
 STDOUT.sync = true
 $stdout.sync = true
 #STDOUT.flush_on_newline = false
-$stdout.flush_on_newline = false
+#$stdout.flush_on_newline = false
 SimpleCov.start 'rails'
 
 

@@ -22,7 +22,7 @@ $stdout.sync = true
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
  # Enable stdout logger
- config.logger = Logger.new(STDOUT)
+ config.logger = ActiveSupport::Logger.new(STDOUT)
 
  # Set log level
  config.log_level = :INFO
